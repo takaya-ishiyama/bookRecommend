@@ -39,6 +39,7 @@ async fn main() {
 
         let app = Router::new()
             .route("/", get(graphql_playground).post(graphql_handler))
+            // .route("/", get(graphql_playground).post(GraphQL::new(schema)))
             .route("/graphql", post(graphql_handler))
             .layer(cors)
             .layer(Extension(schema));
