@@ -44,7 +44,7 @@ async fn main() {
             .layer(cors)
             .layer(Extension(schema));
 
-        let addr = SocketAddr::from(([0, 0, 0, 0], 8000));
+        let addr = SocketAddr::from(([0, 0, 0, 0], 8080));
         // server を起動
         axum::Server::bind(&addr)
             .serve(app.into_make_service())
