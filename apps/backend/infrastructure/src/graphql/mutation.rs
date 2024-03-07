@@ -2,7 +2,7 @@ use async_graphql::{Context, Object, SimpleObject};
 use domain::infrastructure::interface::repository::repository_interface::Repositories;
 use usecase::user::usecase::UserInteractor;
 
-use crate::{db::persistence::postgres::Db, repository::repository_impl::RepositoryImpls};
+use crate::{db::persistence::postgres::DB, repository::repository_impl::RepositoryImpls};
 
 use super::schema::auth::{SessionSchema, UserSchema};
 
@@ -23,7 +23,7 @@ impl Mutation {
         #[graphql(desc = "name of object")] username: String,
         #[graphql(desc = "password of object")] password: String,
     ) -> Result<CreateUser, String> {
-        let db = ctx.data::<Db>().unwrap().0.clone();
+        let db = ctx.data::<DB>().unwrap().0.clone();
         let repo = RepositoryImpls::new(db);
 
         let user_usecase = UserInteractor::new(&repo);

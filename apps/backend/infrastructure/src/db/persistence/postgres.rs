@@ -3,16 +3,20 @@ use sqlx::postgres::PgPoolOptions;
 use sqlx::{Pool, Postgres};
 use std::sync::Arc;
 
-use domain::infrastructure::interface::db::db_interface::DbTrait;
+#[async_trait]
+pub trait DBInterface {
+    async fn new() -> Self;
+}
 
-#[derive(Clone)]
-pub struct Db(pub(crate) Arc<Pool<Postgres>>);
+#[derive(Debug)]
+pub struct DB(pub(crate) Arc<Pool<Postgres>>);
 
 #[async_trait]
-impl DbTrait for Db {
-    async fn new() -> Db {
+impl DBInterface for DB {
+    async fn new() -> DB {
         dotenv::dotenv().ok();
         let database_url = std::env::var("DATABASE_URL").expect("DATABASE_URL is not set");
+        // panic!("DATABASE_URL: {}", database_url);
 
         let pool = PgPoolOptions::new()
             .max_connections(5)
@@ -21,7 +25,6 @@ impl DbTrait for Db {
             .unwrap_or_else(|_| {
                 panic!("Cannot connect to the database. Please check your configuration.")
             });
-
-        Db(Arc::new(pool))
+        DB(Arc::new(pool))
     }
 }

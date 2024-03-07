@@ -1,4 +1,4 @@
-use crate::{db::persistence::postgres::Db, repository::repository_impl::RepositoryImpls};
+use crate::{db::persistence::postgres::DB, repository::repository_impl::RepositoryImpls};
 use async_graphql::*;
 use domain::infrastructure::interface::repository::repository_interface::Repositories;
 use usecase::{session::usecase::SessionInteractor, user::usecase::UserInteractor};
@@ -40,7 +40,7 @@ impl Query {
         #[graphql(desc = "name of object")] username: String,
         #[graphql(desc = "password of object")] password: String,
     ) -> Result<Login, String> {
-        let db = ctx.data::<Db>().unwrap().0.clone();
+        let db = ctx.data::<DB>().unwrap().0.clone();
         let repo = RepositoryImpls::new(db);
 
         let user_usecase = UserInteractor::new(&repo);
@@ -64,7 +64,7 @@ impl Query {
             return Err("token is none".to_string());
         }
 
-        let db = ctx.data::<Db>().unwrap().0.clone();
+        let db = ctx.data::<DB>().unwrap().0.clone();
         let repo = RepositoryImpls::new(db);
 
         let session_usecase = SessionInteractor::new(&repo);
@@ -86,7 +86,7 @@ impl Query {
         if token.is_none() {
             return Err("token is none".to_string());
         }
-        let db = ctx.data::<Db>().unwrap().0.clone();
+        let db = ctx.data::<DB>().unwrap().0.clone();
         let repo = RepositoryImpls::new(db);
         let user_usecase = UserInteractor::new(&repo);
         let _user = user_usecase.login_with_token(token.unwrap()).await.unwrap();
@@ -101,7 +101,7 @@ impl Query {
         ctx: &Context<'ctx>,
         #[graphql(desc = "Id of object")] id: String,
     ) -> Result<GetUser> {
-        let db = ctx.data::<Db>().unwrap().0.clone();
+        let db = ctx.data::<DB>().unwrap().0.clone();
         let repo = RepositoryImpls::new(db);
         let user_usecase = UserInteractor::new(&repo);
         let user = user_usecase.get_user(&id).await.unwrap();

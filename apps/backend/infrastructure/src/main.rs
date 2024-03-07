@@ -19,8 +19,7 @@ use axum::{extract::Extension, response::Html, routing::get, routing::post, Rout
 use hyper::HeaderMap;
 use tower_http::cors::{Any, CorsLayer};
 
-use db::persistence::postgres::Db;
-use domain::infrastructure::interface::db::db_interface::new_db;
+use db::persistence::postgres::{DBInterface, DB};
 
 #[tokio::main]
 async fn main() {
@@ -33,9 +32,9 @@ async fn main() {
             .allow_origin(Any);
 
         let schema = Schema::build(Query, Mutation, EmptySubscription)
-            .data(new_db::<Db>().await)
+            .data(DB::new().await)
             .finish();
-        export_gql_schema(&schema);
+        // export_gql_schema(&schema);
 
         let app = Router::new()
             .route("/", get(graphql_playground).post(graphql_handler))
