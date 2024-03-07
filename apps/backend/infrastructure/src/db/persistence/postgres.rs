@@ -16,7 +16,6 @@ impl DBInterface for DB {
     async fn new() -> DB {
         dotenv::dotenv().ok();
         let database_url = std::env::var("DATABASE_URL").expect("DATABASE_URL is not set");
-        // panic!("DATABASE_URL: {}", database_url);
 
         let pool = PgPoolOptions::new()
             .max_connections(5)
