@@ -1,3 +1,4 @@
-apps/backend/target/*
+apps/backend/target
+apps/backend/.sqlx
 database/*
 .env
