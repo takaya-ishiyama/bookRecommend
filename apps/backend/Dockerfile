@@ -3,10 +3,8 @@ FROM rust:bookworm AS builder
 WORKDIR /backend
 COPY . .
 
-# RUN cargo install sqlx-cli
-# このイメージだと下記のあたりの原因だと思われるでエラーが出る。ubuntuとかでやるの面倒なのでローカル環境で.sqlxを作成してコピーする
-# https://github.com/launchbadge/sqlx/issues/1737#issuecomment-1061133824
-# RUN cargo sqlx prepare --workspace
+RUN cargo install sqlx-cli
+RUN cargo sqlx prepare --workspace
 RUN cargo build --release
 
 # production stage
