@@ -10,5 +10,3 @@ services:
       - ./apps/backend/.env
     ports:
       - "8080:8080"
-    volumes:
-      - ./apps/backend:/apps/backend

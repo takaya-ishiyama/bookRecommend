@@ -20,5 +20,23 @@ services:
       timeout: 5s
       retries: 5
       start_period: 10s
+  #   networks:
+  #     - app-net
+  # rust:
+  #   container_name: rust
+  #   build:
+  #     context: ./apps/backend
+  #     dockerfile: Dockerfile
+  #   env_file:
+  #     - ./apps/backend/.env
+  #   tty: true
+  #   ports:
+  #     - "8080:8080"
+  #   networks:
+  #     - app-net
+
 volumes:
   pg-data:
+# networks:
+#   app-net:
+#     driver: bridge

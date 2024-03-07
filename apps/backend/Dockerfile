@@ -15,7 +15,7 @@ FROM debian:bookworm-slim AS runner
 WORKDIR /backend
 ENV RUST_ENV=production
 ENV SQLX_OFFLINE=true
-COPY --from=builder /backend/.sqlx /backend/
+COPY --from=builder /backend/.sqlx /backend/.sqlx
 COPY --from=builder /backend/target/release/infrastructure /bin/
 RUN apt-get update && \
     apt-get install -y --no-install-recommends openssl libssl-dev

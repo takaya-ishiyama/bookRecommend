@@ -20,10 +20,16 @@ impl DBInterface for DB {
         let pool = PgPoolOptions::new()
             .max_connections(5)
             .connect(database_url.as_str())
-            .await
-            .unwrap_or_else(|_| {
-                panic!("Cannot connect to the database. Please check your configuration.")
-            });
-        DB(Arc::new(pool))
+            .await;
+
+        match pool {
+            Ok(pool) => DB(Arc::new(pool)),
+            Err(e) => {
+                panic!(
+                    "Cannot connect to the database. Please check your configuration. {:?}",
+                    e
+                )
+            }
+        }
     }
 }
