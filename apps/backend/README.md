@@ -1,6 +1,6 @@
 ## データベース操作
 
-- database/pg-data にマウントされているからデータベースを完全削除するときは消す
+- ローカルは database/pg-data にマウントされているからデータベースを完全削除するときは消す
 - sqlx migrate run
 - sqlx database drop
 
