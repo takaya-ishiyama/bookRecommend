@@ -13,6 +13,7 @@ FROM debian:bookworm-slim AS runner
 WORKDIR /backend
 ENV RUST_ENV=production
 ENV SQLX_OFFLINE=true
+COPY --from=public.ecr.aws/awsguru/aws-lambda-adapter:0.7.1 /lambda-adapter /opt/extensions/lambda-adapter
 COPY --from=builder /backend/.sqlx /backend/.sqlx
 COPY --from=builder /backend/target/release/infrastructure /bin/
 RUN apt-get update && \
