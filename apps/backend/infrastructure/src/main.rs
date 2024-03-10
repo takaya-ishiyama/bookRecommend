@@ -1,3 +1,4 @@
+mod config;
 mod db;
 mod graphql;
 mod repository;
@@ -26,7 +27,6 @@ async fn main() {
     let server = async {
         // FIXME: ANYなおす
         let cors = CorsLayer::new()
-            // .allow_headers(vec![ContentType::json()])
             .allow_headers(Any)
             .allow_methods(Any)
             .allow_origin(Any);
@@ -34,7 +34,7 @@ async fn main() {
         let schema = Schema::build(Query, Mutation, EmptySubscription)
             .data(DB::new().await)
             .finish();
-        // export_gql_schema(&schema);
+        export_gql_schema(&schema);
 
         let app = Router::new()
             .route("/", get(graphql_playground).post(graphql_handler))

@@ -3,6 +3,8 @@ use sqlx::postgres::PgPoolOptions;
 use sqlx::{Pool, Postgres};
 use std::sync::Arc;
 
+use crate::config::env;
+
 #[async_trait]
 pub trait DBInterface {
     async fn new() -> Self;
@@ -14,12 +16,10 @@ pub struct DB(pub(crate) Arc<Pool<Postgres>>);
 #[async_trait]
 impl DBInterface for DB {
     async fn new() -> DB {
-        dotenv::dotenv().ok();
-        let database_url = std::env::var("DATABASE_URL").expect("DATABASE_URL is not set");
-
+        let database_url = env().database_url();
         let pool = PgPoolOptions::new()
             .max_connections(5)
-            .connect(database_url.as_str())
+            .connect(database_url)
             .await;
 
         match pool {
