@@ -36,3 +36,7 @@ Make sure to deploy the output of `remix build`
 
 - `build/`
 - `public/build/`
+
+### shadcn コンポーネント追加
+
+npx shadcn-ui@latest add button
