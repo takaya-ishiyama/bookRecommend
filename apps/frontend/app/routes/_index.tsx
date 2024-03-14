@@ -7,21 +7,11 @@ export const meta: MetaFunction = () => {
 
 export default function Index() {
   return (
-    <div style={{ fontFamily: "system-ui, sans-serif", lineHeight: "1.8" }}>
-      <ul>
-        <li>
-          <a target="_self" href="./login">
-            login
-          </a>
-        </li>
-        <li>
-          <a target="_self" href="./app/top">
-            top
-          </a>
-        </li>
-      </ul>
-      <div>
-        <Button>Click me</Button>
+    <div>
+      <div className={"grid place-content-center"}>
+        <h1 className="fade-in" style={{ fontSize: 30 }}>
+          本との新しい縁を、ここから
+        </h1>
       </div>
     </div>
   );
