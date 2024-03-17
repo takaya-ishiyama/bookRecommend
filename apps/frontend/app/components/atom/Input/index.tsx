@@ -1,8 +1,8 @@
 import React from "react";
 
-import { Input as SCNInput } from "@/components/ui/input";
+import { InputProps, Input as SCNInput } from "@/components/ui/input";
 
-type Props = {};
-export const Input: React.FC<Props> = ({}) => {
-  return <SCNInput />;
+type Props = {} & InputProps;
+export const Input: React.FC<Props> = ({ ...props }) => {
+  return <SCNInput {...props} />;
 };

@@ -5,10 +5,9 @@ const meta = {
   title: "atom/Input",
   component: Input,
   tags: ["autodocs"],
-  parameters: {
-    layout: "centered",
+  args: {
+    className: "grid place-content-center",
   },
-  args: {},
 } satisfies Meta<typeof Input>;
 
 export default meta;

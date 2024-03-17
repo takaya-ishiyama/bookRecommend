@@ -1,12 +1,11 @@
-import { Card } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
+import { Input } from "@/components/atom";
 import React from "react";
 
 const Login = () => {
   return (
     <>
-      <view className="flex justify-center items-center h-screen" style={{}}>
-        <Input />
+      <view className="flex justify-center items-center h-screen">
+        <Input style={{}} />
       </view>
     </>
   );
