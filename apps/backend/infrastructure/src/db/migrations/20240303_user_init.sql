@@ -22,6 +22,6 @@ CREATE TABLE session (
 CREATE INDEX idx_session_user_id ON session(user_id);
 CREATE INDEX idx_session_access_token ON session(access_token);
 
-INSERT INTO users (id, public_id,username, password)
-VALUES
-  ('17b5ac0c-1429-469a-8522-053f7bf0f80d', 'abc123', 'test', 'password');
+-- INSERT INTO users (id, public_id,username, password)
+-- VALUES
+--   ('17b5ac0c-1429-469a-8522-053f7bf0f80d', 'abc123', 'test', 'password');

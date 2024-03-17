@@ -17,7 +17,7 @@ use axum::extract::{Json, State};
 use axum::response::IntoResponse;
 use axum::{extract::Extension, response::Html, routing::get, routing::post, Router};
 
-use hyper::HeaderMap;
+use hyper::{HeaderMap, Method};
 use tower_http::cors::{Any, CorsLayer};
 
 use db::persistence::postgres::{DBInterface, DB};
@@ -28,7 +28,7 @@ async fn main() {
         // FIXME: ANYなおす
         let cors = CorsLayer::new()
             .allow_headers(Any)
-            .allow_methods(Any)
+            .allow_methods(vec![Method::GET, Method::POST])
             .allow_origin(Any);
 
         let schema = Schema::build(Query, Mutation, EmptySubscription)
