@@ -2,3 +2,4 @@ apps/backend/target
 apps/backend/.sqlx
 database/*
 .env
+storybook-static
