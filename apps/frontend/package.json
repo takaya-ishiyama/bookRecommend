@@ -30,6 +30,7 @@
     "tailwind-merge": "^2.2.1",
     "tailwindcss": "^3.4.1",
     "tailwindcss-animate": "^1.0.7",
+    "tsconfig-paths-webpack-plugin": "^4.1.0",
     "vercel": "^33.5.4"
   },
   "devDependencies": {
@@ -40,6 +41,7 @@
     "@storybook/addon-interactions": "^8.0.0",
     "@storybook/addon-links": "^8.0.0",
     "@storybook/addon-onboarding": "^8.0.0",
+    "@storybook/addon-styling-webpack": "^0.0.6",
     "@storybook/addon-webpack5-compiler-swc": "^1.0.2",
     "@storybook/blocks": "^8.0.0",
     "@storybook/react": "^8.0.0",

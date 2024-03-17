@@ -1,15 +1,13 @@
 import { Card } from "@/components/ui/card";
-import React from "react";
+import React, { Children, PropsWithChildren } from "react";
 
-export const FullWidthCard = () => {
+type Props = {} & PropsWithChildren;
+export const FullWidthCard: React.FC<Props> = ({ children }) => {
   return (
-    // <Card>
     <>
-      <div className="grid place-content-center">
-        <button className="grid place-content-center">aaaa</button>
-      </div>
-      <div>FullWidthCard</div>
+      {/* <Card> */}
+      <view>{children}</view>
+      {/* </Card> */}
     </>
-    // </Card>
   );
 };

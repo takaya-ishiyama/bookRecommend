@@ -2957,6 +2957,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@storybook/addon-styling-webpack@npm:^0.0.6":
+  version: 0.0.6
+  resolution: "@storybook/addon-styling-webpack@npm:0.0.6"
+  dependencies:
+    "@storybook/node-logger": "npm:^7.0.12"
+  peerDependencies:
+    webpack: ^5.0.0
+  checksum: 10c0/b0dc60ba927ae4982f06fa37874a25b70b53532cea715baeda3125fa87c1361429aaf15964d5bcd1d3a137fe1f3aad4f1cc666dc77942ef67818cd8c8ae0a51e
+  languageName: node
+  linkType: hard
+
 "@storybook/addon-toolbars@npm:8.0.0":
   version: 8.0.0
   resolution: "@storybook/addon-toolbars@npm:8.0.0"
@@ -3434,6 +3445,13 @@ __metadata:
   version: 8.0.0
   resolution: "@storybook/node-logger@npm:8.0.0"
   checksum: 10c0/783285bcdf8a13a8e524e57494a64e168269bdc4ad8b364df7f22a13bf7742ccf72d2639f17b98c5ec7dade32e3f37390162474b5058d99220e93f266fdbcb84
+  languageName: node
+  linkType: hard
+
+"@storybook/node-logger@npm:^7.0.12":
+  version: 7.6.17
+  resolution: "@storybook/node-logger@npm:7.6.17"
+  checksum: 10c0/7b91f10812b8ea4e8716c3b133c5a78ac419e6bcd6a6ab80117cee25287aa973c1710a74a882238697499a1eca6521c4171f4f2d2e8651fb8ef6e28b7ee167fe
   languageName: node
   linkType: hard
 
@@ -6849,7 +6867,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"enhanced-resolve@npm:^5.15.0":
+"enhanced-resolve@npm:^5.15.0, enhanced-resolve@npm:^5.7.0":
   version: 5.16.0
   resolution: "enhanced-resolve@npm:5.16.0"
   dependencies:
@@ -8023,6 +8041,7 @@ __metadata:
     "@storybook/addon-interactions": "npm:^8.0.0"
     "@storybook/addon-links": "npm:^8.0.0"
     "@storybook/addon-onboarding": "npm:^8.0.0"
+    "@storybook/addon-styling-webpack": "npm:^0.0.6"
     "@storybook/addon-webpack5-compiler-swc": "npm:^1.0.2"
     "@storybook/blocks": "npm:^8.0.0"
     "@storybook/react": "npm:^8.0.0"
@@ -8042,6 +8061,7 @@ __metadata:
     tailwind-merge: "npm:^2.2.1"
     tailwindcss: "npm:^3.4.1"
     tailwindcss-animate: "npm:^1.0.7"
+    tsconfig-paths-webpack-plugin: "npm:^4.1.0"
     typescript: "npm:^5.1.6"
     vercel: "npm:^33.5.4"
   languageName: unknown
@@ -13671,7 +13691,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tsconfig-paths@npm:^4.0.0, tsconfig-paths@npm:^4.2.0":
+"tsconfig-paths-webpack-plugin@npm:^4.1.0":
+  version: 4.1.0
+  resolution: "tsconfig-paths-webpack-plugin@npm:4.1.0"
+  dependencies:
+    chalk: "npm:^4.1.0"
+    enhanced-resolve: "npm:^5.7.0"
+    tsconfig-paths: "npm:^4.1.2"
+  checksum: 10c0/c030e867e70a3f6d1799fdffa209c3a35e1435ad99aac01946b9ebb0fa8208b7b508c1dfe8c8e13d6a2ef70c75b4db062fbfd3c1f3362c69b6c65ffd4a50e226
+  languageName: node
+  linkType: hard
+
+"tsconfig-paths@npm:^4.0.0, tsconfig-paths@npm:^4.1.2, tsconfig-paths@npm:^4.2.0":
   version: 4.2.0
   resolution: "tsconfig-paths@npm:4.2.0"
   dependencies:
